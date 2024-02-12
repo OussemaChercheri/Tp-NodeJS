@@ -11,9 +11,14 @@ app.listen(port, () => {
 })
 
 app.get('/index', (req, res) =>{
-    res.send(`<h1>page HTML</h1>`)
+    res.send(`<h1>Page HTML</h1>`)
 })
 
 app.get('/home', (req, res) =>{
     res.json({etudiant:"Ahmed", note:15})
 })
+
+app.get('/exemple', (req, res, next) => {
+    console.log('La réponse sera envoyée par la fonction suivante... '); next();
+
+}, (req, res) => { res.send('Hello from B!');})
